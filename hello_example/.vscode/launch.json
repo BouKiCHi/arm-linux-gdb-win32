@@ -1,0 +1,24 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "(gdb) Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/hello",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": true,
+            "MIMode": "gdb",
+            "miDebuggerPath": "${workspaceFolder}/bin/arm-linux-gnueabihf-gdb.exe",
+            "setupCommands": [
+                { "text": "target extended-remote raspi.local:9000" },
+                { "text": "file ./hello" },
+                { "text": "set remote exec-file ./hello" },
+                { "text": "-enable-pretty-printing", "ignoreFailures": true }
+            ]
+        }
+    ]
+}
